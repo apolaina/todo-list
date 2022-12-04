@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import { IDictionary } from "../models/IDictionary";
-import { LocalStorageKeys } from "../models/LocalStorageKeys";
+import { useState, useEffect } from 'react';
+import { Dictionary } from '../models/Dictionary';
+import { LocalStorageKeys } from '../models/LocalStorageKeys';
+import { Todo } from '../models/Todo';
 
-const getStorageValue = (key: LocalStorageKeys, initialValue: IDictionary<any>) => {
+const getStorageValue = (key: LocalStorageKeys, initialValue: Dictionary<Todo>) => {
     const saved = localStorage.getItem(key);
     return saved ? JSON.parse(saved) : initialValue;
-}
+};
 
-export const useLocalStorage = (key: LocalStorageKeys, initialValue: IDictionary<any>) => {
+export const useLocalStorage = (key: LocalStorageKeys, initialValue: Dictionary<Todo>) => {
     const [value, setValue] = useState(() => {
         return getStorageValue(key, initialValue);
     });

@@ -15,6 +15,7 @@ module.exports = {
         'todo-grey-300': 'rgb(97, 97, 97)',
         'todo-grey-400': 'rgb(244, 245, 247)',
         'todo-grey-500': 'rgba(9, 30, 66, 0.08)',
+        'todo-grey-600': 'rgba(9, 30, 66, 0.04)',
         'todo-icon': 'rgb(145, 145, 145)',
         'todo-text': 'rgb(49, 49, 49)',
       },

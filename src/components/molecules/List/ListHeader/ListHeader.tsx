@@ -1,11 +1,9 @@
-import { ReactNode } from 'react';
-
-interface Props {
+type Props = {
     title: string;
     onButtonClick: () => void;
-}
+};
 
-const HeaderList: React.FC<Props> = ({ title, onButtonClick }: Props) => (
+const ListHeader: React.FC<Props> = ({ title, onButtonClick }: Props) => (
     <div className="flex w-full justify-between items-center pl-4 pr-2 py-2.5">
         <div className="text-todo-text text-sm font-semibold">{title}</div>
         <div className="flex h-8 w-8 items-center justify-center rounded-sm hover:bg-todo-grey-200 cursor-pointer" onClick={onButtonClick}>
@@ -14,4 +12,4 @@ const HeaderList: React.FC<Props> = ({ title, onButtonClick }: Props) => (
     </div>
 );
 
-export default HeaderList;
+export default ListHeader;

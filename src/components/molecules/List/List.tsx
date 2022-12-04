@@ -1,34 +1,33 @@
 import { useContext } from 'react';
 import { AppContext } from '../../../helpers/AppContext';
-import { ITodo } from '../../../models/ITodo';
+import { Todo } from '../../../models/Todo';
+import Card from '../Card/Card';
+import Cards from '../../organisms/Cards/Cards';
+import FormContainer from '../Form/FormContainer/FormContainer';
+import ListHeader from './ListHeader/ListHeader';
+import ListFooter from './ListFooter/ListFooter';
 
-import AddCardButton from '../../atoms/Button/AddCardButton/AddCardButton';
-import Card from '../../atoms/Card/Card';
-import Cards from '../Cards/Cards';
-import FooterList from '../../atoms/List/FooterList/FooterList';
-import HeaderList from '../../atoms/List/HeaderList/HeaderList';
-
-interface Props {
-    todo: ITodo;
-}
+type Props = {
+    todo: Todo;
+};
 
 const List: React.FC<Props> = ({ todo }: Props) => {
     const { removeTodo } = useContext(AppContext);
 
     return (
         <div className="flex flex-col mx-1 w-68 bg-todo-grey-50 rounded-sm">
-            <HeaderList title={todo.title} onButtonClick={() => removeTodo(todo.id!)} />
+            <ListHeader title={todo.title} onButtonClick={() => removeTodo(todo.id!)} />
 
             <Cards>
                 {Object.keys(todo.cards).map((keyCard: string) => {
                     const card = todo.cards[keyCard];
-                    return <Card key={keyCard} title={card.title} isFollowed={card.isFollowed} hasDescription={!!card.description} />;
+                    return <Card key={keyCard} card={{ id: keyCard, ...card }} todo={todo} />;
                 })}
             </Cards>
 
-            <FooterList>
-                <AddCardButton title="Ajouter une autre carte" />
-            </FooterList>
+            <ListFooter>
+                <FormContainer title="Ajouter une autre carte" todo={todo} />
+            </ListFooter>
         </div>
     );
 };

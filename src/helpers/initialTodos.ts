@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-import { IDictionary } from '../models/IDictionary';
-import { ITodo } from '../models/ITodo';
+import { Dictionary } from '../models/Dictionary';
+import { Todo } from '../models/Todo';
 
-export const initialTodos: IDictionary<ITodo> = {
+export const initialTodos: Dictionary<Todo> = {
     [uuidv4()]: {
-        title: 'My first card',
+        title: 'My first list',
         cards: {
             [uuidv4()]: {
                 title: 'My first card',

@@ -1,13 +1,12 @@
 import { createContext } from 'react';
+import { Todo } from '../models/Todo';
 
-interface ContextProps {
+type ContextProps = {
     removeTodo: (id: string) => void;
-    updateTodo: (id: string) => void;
-    onToggleFollow: () => void;
+    updateTodo: (updatedTodo: Todo) => void;
 }
 
 export const AppContext = createContext<ContextProps>({
     removeTodo: (id: string) => { },
-    updateTodo: (id: string) => { },
-    onToggleFollow: () => { },
+    updateTodo: (updatedTodo: Todo) => { },
 });

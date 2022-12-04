@@ -1,6 +1,6 @@
-export interface ICard {
+export type Card = {
     id?: string;
     title: string;
     description?: string;
-    isFollowed: boolean;
+    isFollowed?: boolean;
 }
